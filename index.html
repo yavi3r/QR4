@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Bancarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input {
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mis Datos Bancarios</h1>
+        <p>A continuación puedes copiar mis datos bancarios:</p>
+        <!-- Input con tus datos bancarios -->
+        <input type="text" id="datosBancarios" value="Banco: XYZ, Cuenta: 123456789, CLABE: 9876543210" readonly>
+        <br>
+        <!-- Botón para copiar -->
+        <button onclick="copiarDatos()">Copiar al portapapeles</button>
+    </div>
+
+    <script>
+        function copiarDatos() {
+            var datos = document.getElementById("datosBancarios");
+            datos.select();
+            datos.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+            // Copiar al portapapeles
+            document.execCommand("copy");
+
+            alert("¡Datos copiados al portapapeles!");
+        }
+    </script>
+
+</body>
+</html>
